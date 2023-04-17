@@ -87,10 +87,12 @@
     imgElements[i].addEventListener('click', function () {
       // 创建一个a标签元素，并设置其href属性为当前点击的img标签的src属性值
       const link = document.createElement('a');
-      link.href = this.src;
+      link.href = this.src.replace('@.webp', '');
+      link.target = '_self';
 
       // 设置a标签元素的download属性为图片文件名，以便在下载时保留原始文件名
-      const filename = this.src.substring(this.src.lastIndexOf('/') + 1);
+      const filename = this.src.substring(this.src.lastIndexOf('/') + 1).replace('@.webp', '');
+      console.log(filename, '===========打印的 ------ ');
       link.download = filename;
 
       // 将a标签元素添加到body中，并执行点击事件，启动下载
