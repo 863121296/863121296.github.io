@@ -92,7 +92,7 @@
       const originUrl= 'https://images.weserv.nl/?url='+this.src.replace('@.webp', '');
       fetch(originUrl).then(res => res.blob()).then(res => {
         const url = URL.createObjectURL(res)
-        const filename = '吃瓜二维码'+ originUrl.split('/').pop();
+        const filename = '吃瓜二维码';
         link.download = filename;
         link.href = url
         link.click()
